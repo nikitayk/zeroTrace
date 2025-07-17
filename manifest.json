@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "zeroTrace - Private AI Assistant",
+  "version": "1.0.0",
+  "description": "A secure, private ChatGPT-like AI assistant that doesn't store your conversations. Chat with AI while maintaining complete privacy.",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "zeroTrace - Private AI Chat"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}
