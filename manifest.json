@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PrivateGPT Pro - Full ChatGPT Experience",
+  "version": "1.0.0",
+  "description": "Complete ChatGPT Pro experience with file uploads, code execution, image analysis, and zero data storage. Maximum privacy.",
+  "permissions": ["activeTab", "storage", "clipboardWrite"],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.mistral.ai/*",
+    "https://api.cohere.ai/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "PrivateGPT Pro - Full ChatGPT Experience"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}
