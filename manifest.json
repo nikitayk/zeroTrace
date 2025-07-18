@@ -1,19 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "PrivateGPT - Secure AI Chat",
+  "name": "zeroTrace - Private AI Assistant",
   "version": "1.0.0",
-  "description": "Privacy-first ChatGPT alternative using your own OpenAI API key. No data storage, no tracking, complete privacy.",
-  "permissions": ["activeTab"],
-  "host_permissions": ["https://api.openai.com/*"],
+  "description": "Enterprise-grade private AI assistant. Use any AI model with your API keys. Zero data storage, maximum privacy.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.mistral.ai/*"
+  ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "PrivateGPT - Secure AI Chat"
+    "default_title": "zeroTrace - Private AI Assistant"
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
   },
   "icons": {
-    "16": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMkM0LjY4NjI5IDIgMiA0LjY4NjI5IDIgOEMyIDExLjMxMzcgNC42ODYyOSAxNCA4IDE0QzExLjMxMzcgMTQgMTQgMTEuMzEzNyAxNCA4QzE0IDQuNjg2MjkgMTEuMzEzNyAyIDggMloiIGZpbGw9IiMzQjgyRjYiLz4KPHBhdGggZD0iTTYgNkgxMFY3SDZWNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik02IDhIMTBWOUg2VjhaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNiAxMEgxMFYxMUg2VjEwWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+",
-    "48": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0IDZDMTQuMDU4OSA2IDYgMTQuMDU4OSA2IDI0QzYgMzMuOTQxMSAxNC4wNTg5IDQyIDI0IDQyQzMzLjk0MTEgNDIgNDIgMzMuOTQxMSA0MiAyNEM0MiAxNC4wNTg5IDMzLjk0MTEgNiAyNCA2WiIgZmlsbD0iIzNCODJGNiIvPgo8cGF0aCBkPSJNMTggMThIMzBWMjFIMThWMThaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTggMjRIMzBWMjdIMThWMjRaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTggMzBIMzBWMzNIMThWMzBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4="
+    "16": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjciIGZpbGw9InVybCgjZ3JhZGllbnQpIi8+CjxwYXRoIGQ9Ik01IDZoNnYxSDV6bTAgMmg2djFINXptMCAyaDR2MUg1eiIgZmlsbD0iI2ZmZiIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkaWVudCI+CjxzdG9wIHN0b3AtY29sb3I9IiM2NjdlZWEiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNzY0YmEyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+",
+    "48": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjEiIGZpbGw9InVybCgjZ3JhZGllbnQpIi8+CjxwYXRoIGQ9Ik0xNSAxOGgxOHYzSDE1em0wIDZoMTh2M0gxNXptMCA2aDEydjNIMTV6IiBmaWxsPSIjZmZmIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50Ij4KPHN0b3Agc3RvcC1jb2xvcj0iIzY2N2VlYSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4="
   }
 }

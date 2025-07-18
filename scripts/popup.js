@@ -265,6 +265,12 @@ class ZeroTraceChat {
     themeToggle.textContent = this.settings.theme === "dark" ? "🌙" : "☀️"
   }
 
+  toggleTheme() {
+    this.settings.theme = this.settings.theme === "dark" ? "light" : "dark"
+    this.setupTheme()
+    this.saveSettings()
+  }
+
   clearChat() {
     if (confirm("Are you sure you want to clear the chat? This action cannot be undone.")) {
       this.messages = []
@@ -314,4 +320,3 @@ class ZeroTraceChat {
 document.addEventListener("DOMContentLoaded", () => {
   window.zeroTraceChat = new ZeroTraceChat()
 })
-

@@ -3,101 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrivateGPT</title>
-    <link rel="stylesheet" href="style.css">
+    <title>zeroTrace - Private AI Assistant</title>
+    <link rel="stylesheet" href="styles/popup.css">
 </head>
 <body>
     <div class="container">
         <!-- Header -->
-        <div class="header">
+        <header class="header">
             <div class="header-content">
                 <div class="logo">
-                    <span class="logo-icon">🔒</span>
-                    <span class="logo-text">PrivateGPT</span>
+                    <span class="logo-icon">🛡️</span>
+                    <span class="logo-text">zeroTrace</span>
                 </div>
                 <div class="header-actions">
-                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-                        🌙
-                    </button>
-                    <button class="clear-btn" id="clearBtn" title="Clear Chat">
-                        🗑️
-                    </button>
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌙</button>
+                    <button class="settings-btn" id="settingsBtn" title="Settings">⚙️</button>
                 </div>
             </div>
-        </div>
-
-        <!-- Privacy Notice -->
-        <div class="privacy-notice">
-            <span class="privacy-icon">🛡️</span>
-            <span class="privacy-text">You're using your own API key. Your data stays on your device.</span>
-        </div>
-
-        <!-- API Key Setup -->
-        <div class="api-key-section" id="apiKeySection">
-            <div class="api-key-header">
-                <span class="key-icon">🔑</span>
-                <span>OpenAI API Key</span>
-                <button class="toggle-key-btn" id="toggleKeyBtn" title="Show/Hide API Key">👁️</button>
-            </div>
-            <div class="api-key-input-wrapper">
-                <input 
-                    type="password" 
-                    class="api-key-input" 
-                    id="apiKeyInput"
-                    placeholder="sk-..."
-                    autocomplete="off"
-                    spellcheck="false"
-                >
-                <button class="save-key-btn" id="saveKeyBtn">Save</button>
-            </div>
-            <div class="api-key-status" id="apiKeyStatus"></div>
-        </div>
+        </header>
 
         <!-- Chat Container -->
-        <div class="chat-container" id="chatContainer">
-            <div class="welcome-message">
+        <main class="chat-container" id="chatContainer">
+            <!-- Welcome Screen -->
+            <div class="welcome-screen" id="welcomeScreen">
                 <div class="welcome-icon">✨</div>
-                <h2>Welcome to PrivateGPT</h2>
-                <p>Enter your OpenAI API key above to start chatting securely. No data is stored or tracked.</p>
+                <h1 class="welcome-title">Welcome to zeroTrace</h1>
+                <p class="welcome-subtitle">Your private AI assistant that keeps your data secure and never stores your conversations.</p>
+                
+                <div class="welcome-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">🔒</span>
+                        <span class="feature-text">Zero Data Storage</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🚀</span>
+                        <span class="feature-text">Multiple AI Models</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">💰</span>
+                        <span class="feature-text">Your Own API Keys</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🎯</span>
+                        <span class="feature-text">Enterprise Privacy</span>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
 
         <!-- Input Area -->
-        <div class="input-area">
-            <div class="input-wrapper">
-                <textarea 
-                    class="message-input" 
-                    id="messageInput"
-                    placeholder="Type your message..."
-                    rows="1"
-                    disabled
-                ></textarea>
-                <button class="send-btn" id="sendBtn" disabled title="Send message">
-                    <span class="send-icon">➤</span>
-                </button>
-            </div>
-            <div class="input-footer">
-                <div class="model-info">
-                    <span id="modelName">GPT-3.5 Turbo</span>
+        <footer class="input-area">
+            <div class="input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        class="message-input" 
+                        id="messageInput"
+                        placeholder="Ask anything... Your data stays private."
+                        rows="1"
+                        maxlength="4000"
+                    ></textarea>
+                    <button class="send-button" id="sendButton" disabled title="Send message">
+                        ➤
+                    </button>
                 </div>
-                <div class="char-counter">
-                    <span id="charCount">0</span> chars
+                <div class="input-footer">
+                    <span class="input-hint">Press Enter to send, Shift+Enter for new line</span>
+                    <span class="char-counter" id="charCount">0</span>
                 </div>
             </div>
-        </div>
+        </footer>
 
         <!-- Status Bar -->
         <div class="status-bar">
-            <div class="connection-status">
-                <span class="status-dot" id="statusDot"></span>
-                <span id="statusText">Ready</span>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>Private & Secure</span>
             </div>
-            <div class="token-info" id="tokenInfo" style="display: none;">
-                <span>~<span id="tokenCount">0</span> tokens</span>
-            </div>
+            <button class="clear-btn" id="clearBtn" title="Clear Chat">Clear</button>
         </div>
     </div>
 
-    <script src="popup.js"></script>
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Settings</h2>
+                <button class="close-btn" id="closeSettings">✕</button>
+            </div>
+            
+            <div class="setting-group">
+                <label class="setting-label" for="apiKey">OpenAI API Key</label>
+                <input 
+                    type="password" 
+                    class="setting-input" 
+                    id="apiKey"
+                    placeholder="sk-..."
+                    autocomplete="off"
+                >
+                <p class="setting-description">Your API key is stored locally and never shared. Get yours from OpenAI Platform.</p>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label" for="modelSelect">AI Model</label>
+                <select class="setting-input" id="modelSelect">
+                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Fast & Affordable)</option>
+                    <option value="gpt-4">GPT-4 (Most Capable)</option>
+                    <option value="gpt-4-turbo">GPT-4 Turbo (Latest)</option>
+                    <option value="claude-3-sonnet">Claude 3 Sonnet (Coming Soon)</option>
+                    <option value="gemini-pro">Gemini Pro (Coming Soon)</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label class="setting-label" for="systemPrompt">System Prompt</label>
+                <textarea 
+                    class="setting-input" 
+                    id="systemPrompt"
+                    rows="3"
+                    placeholder="You are a helpful AI assistant..."
+                ></textarea>
+                <p class="setting-description">Customize how the AI behaves and responds to your queries.</p>
+            </div>
+
+            <button class="save-btn" id="saveSettings">
+                💾 Save Settings
+            </button>
+        </div>
+    </div>
+
+    <script src="scripts/popup.js"></script>
 </body>
 </html>
