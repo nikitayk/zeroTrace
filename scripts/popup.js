@@ -30,35 +30,18 @@ class PrivateGPTPro {
         this.setupFileHandling();
     }
 
-    // Settings Management
+    // Settings Management - IN-MEMORY ONLY
     async loadSettings() {
-        try {
-            const result = await chrome.storage.local.get('privateGPTProSettings');
-            if (result.privateGPTProSettings) {
-                this.settings = { ...this.settings, ...JSON.parse(result.privateGPTProSettings) };
-            }
-            
-            // Load theme from sessionStorage for immediate application
-            const sessionTheme = sessionStorage.getItem('privateGPT_theme');
-            if (sessionTheme) {
-                this.currentTheme = sessionTheme;
-            }
-        } catch (error) {
-            console.error('Error loading settings:', error);
-        }
+        // No persistent storage - all settings are in-memory only
+        // Settings are reset when popup closes - this is intentional for privacy
+        console.log('PrivateGPT Pro: Settings loaded (in-memory only)');
     }
 
     async saveSettings() {
-        try {
-            await chrome.storage.local.set({
-                privateGPTProSettings: JSON.stringify(this.settings)
-            });
-            sessionStorage.setItem('privateGPT_theme', this.currentTheme);
-            this.showNotification('Settings saved successfully!', 'success');
-        } catch (error) {
-            console.error('Error saving settings:', error);
-            this.showNotification('Failed to save settings', 'error');
-        }
+        // IN-MEMORY ONLY - No persistent storage for privacy
+        // Settings are intentionally lost when popup closes
+        console.log('PrivateGPT Pro: Settings updated (in-memory only)');
+        this.showNotification('Settings updated for this session only', 'info');
     }
 
     // Event Listeners

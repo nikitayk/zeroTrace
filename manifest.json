@@ -3,7 +3,7 @@
   "name": "PrivateGPT Pro - Full ChatGPT Experience",
   "version": "1.0.0",
   "description": "Complete ChatGPT Pro experience with file uploads, code execution, image analysis, and zero data storage. Maximum privacy.",
-  "permissions": ["activeTab", "storage", "clipboardWrite"],
+  "permissions": ["activeTab", "clipboardWrite"],
   "host_permissions": [
     "https://api.openai.com/*",
     "https://api.anthropic.com/*",
