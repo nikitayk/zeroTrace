@@ -1,14 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "zeroTrace - Private AI Assistant",
+  "name": "PrivateGPT - Secure AI Chat",
   "version": "1.0.0",
-  "description": "A secure, private ChatGPT-like AI assistant that doesn't store your conversations. Chat with AI while maintaining complete privacy.",
-  "permissions": ["storage", "activeTab"],
+  "description": "Privacy-first ChatGPT alternative using your own OpenAI API key. No data storage, no tracking, complete privacy.",
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://api.openai.com/*"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "zeroTrace - Private AI Chat"
+    "default_title": "PrivateGPT - Secure AI Chat"
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "icons": {
+    "16": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMkM0LjY4NjI5IDIgMiA0LjY4NjI5IDIgOEMyIDExLjMxMzcgNC42ODYyOSAxNCA4IDE0QzExLjMxMzcgMTQgMTQgMTEuMzEzNyAxNCA4QzE0IDQuNjg2MjkgMTEuMzEzNyAyIDggMloiIGZpbGw9IiMzQjgyRjYiLz4KPHBhdGggZD0iTTYgNkgxMFY3SDZWNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik02IDhIMTBWOUg2VjhaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNiAxMEgxMFYxMUg2VjEwWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+",
+    "48": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0IDZDMTQuMDU4OSA2IDYgMTQuMDU4OSA2IDI0QzYgMzMuOTQxMSAxNC4wNTg5IDQyIDI0IDQyQzMzLjk0MTEgNDIgNDIgMzMuOTQxMSA0MiAyNEM0MiAxNC4wNTg5IDMzLjk0MTEgNiAyNCA2WiIgZmlsbD0iIzNCODJGNiIvPgo8cGF0aCBkPSJNMTggMThIMzBWMjFIMThWMThaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTggMjRIMzBWMjdIMThWMjRaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMTggMzBIMzBWMzNIMThWMzBaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4="
   }
 }
